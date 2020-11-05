@@ -1,3 +1,0 @@
-D:\Yasin_Projects\Code Hubs\NodeJS\CRUD API SQL Server\CRUD API SQL Server\obj\Debug\CRUD API SQL Server.njsprojAssemblyReference.cache
-D:\Yasin_Projects\Code Hubs\NodeJS\CRUD API SQL Server\CRUD API SQL Server\obj\Debug\CRUD API SQL Server.njsproj.CoreCompileInputs.cache
-D:\Yasin_Projects\Code Hubs\NodeJS\CRUD API SQL Server\CRUD API SQL Server\bin\Microsoft.NodejsTools.WebRole.dll

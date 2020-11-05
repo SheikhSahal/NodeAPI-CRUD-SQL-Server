@@ -8,7 +8,7 @@ var dbConfig = require('../Database/dbConnection');
 /* Get All Students */
 router.get('/', function (req, res) {
     sql.connect(dbConfig.dbConnection()).then(() => {
-        return sql.query("SELECT * FROM StudentInfo;");
+        return sql.query("SELECT * FROM test;");
     }).then(result => {
         res.send(result.recordset);
     }).catch(err => {
@@ -19,7 +19,7 @@ router.get('/', function (req, res) {
 /* Add Student */
 router.post('/addStudent', function (req, res) {
     sql.connect(dbConfig.dbConnection()).then(() => {
-        return sql.query("INSERT INTO StudentInfo VALUES('" + req.body.Name + "', " + req.body.Age + ")");
+        return sql.query("INSERT INTO test (Name,email) VALUES('" + req.body.Name + "', '" + req.body.email + "')");
     }).then(result => {
         res.status(200).send("Student Added Successfully.");
     }).catch(err => {
@@ -30,7 +30,7 @@ router.post('/addStudent', function (req, res) {
 /* Delete Student */
 router.get('/deleteStudent/:ID', function (req, res) {
     sql.connect(dbConfig.dbConnection()).then(() => {
-        return sql.query("DELETE FROM StudentInfo WHERE ID = " + req.params.ID);
+        return sql.query("DELETE FROM test WHERE ID = " + req.params.ID);
     }).then(result => {
         res.status(200).send("Student Deleted Successfully.");
     }).catch(err => {
@@ -41,7 +41,7 @@ router.get('/deleteStudent/:ID', function (req, res) {
 /* Edit Student */
 router.get('/editStudent/:ID', function (req, res) {
     sql.connect(dbConfig.dbConnection()).then(() => {
-        return sql.query("SELECT * FROM StudentInfo WHERE ID = " + req.params.ID);
+        return sql.query("SELECT * FROM test WHERE ID = " + req.params.ID);
     }).then(result => {
         res.send(result.recordset);
     }).catch(err => {
@@ -52,7 +52,7 @@ router.get('/editStudent/:ID', function (req, res) {
 /* Update Student */
 router.post('/updateStudent', function (req, res) {
     sql.connect(dbConfig.dbConnection()).then(() => {
-        return sql.query("UPDATE StudentInfo SET [Name] = '" + req.body.Name + "', Age = " + req.body.Age + " WHERE ID = " + req.body.ID);
+        return sql.query("UPDATE test SET [Name] = '" + req.body.Name + "', email = '" + req.body.email + "' WHERE ID = " + req.body.ID);
     }).then(result => {
         res.status(200).send("Student Updated Successfully.");
     }).catch(err => {
