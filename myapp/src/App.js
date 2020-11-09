@@ -48,6 +48,15 @@ export class App extends Component {
       });
   }
 
+  NameChange(event) {
+    this.setState({ Username: event.target.value });
+    console.log(this.state.Username)
+  }
+
+  emailChange(event) {
+    this.setState({ Username: event.target.value });
+    console.log(this.state.Username)
+  }
 
   render() {
     const { hits } = this.state;
@@ -87,8 +96,11 @@ export class App extends Component {
                 </button>
               </div>
               <div className="modal-body">
-                Name : <input type="text" name="Name"  className="form-control"  value={this.state.Username} /> 
-                Email : <input type="text" name="Email"  className="form-control"  value={this.state.Email} /> 
+                <form onSubmit={ this.onFormSubmit }>
+                Name : <input type="text" name="Name" onChange={this.NameChange.bind(this)} className="form-control"  value={this.state.Username} /> 
+                Email : <input type="text" name="Email"  className="form-control"  value={this.state.Email} />  
+                </form>
+                
       </div>
               <div className="modal-footer">
                 <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
