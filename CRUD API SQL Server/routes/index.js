@@ -50,9 +50,10 @@ router.get('/editStudent/:ID', function (req, res) {
 });
 
 /* Update Student */
-router.post('/updateStudent', function (req, res) {
+router.post('/updateStudent', function (req, res) {    
     sql.connect(dbConfig.dbConnection()).then(() => {
-        return sql.query("UPDATE test SET [Name] = '" + req.body.Name + "', email = '" + req.body.email + "' WHERE ID = " + req.body.ID);
+        return sql.query("update test  set Name =  '" + req.body.Name + "', email ='" + req.body.email + "' where id =" + req.body.stID);
+        return sql.query("	update test  set Name = 'ST', email = 'ST@gmail.com' where id = 1");
     }).then(result => {
         res.status(200).send("Student Updated Successfully.");
     }).catch(err => {
